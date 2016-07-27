@@ -185,7 +185,7 @@ export function getNamedType(type: ?GraphQLType): ?GraphQLNamedType {
   ) {
     unmodifiedType = unmodifiedType.ofType;
   }
-  return unmodifiedType;
+  return (unmodifiedType: any);
 }
 
 
@@ -470,7 +470,7 @@ export type GraphQLTypeResolveFn = (
   value: mixed,
   context: mixed,
   info: GraphQLResolveInfo
-) => ?GraphQLObjectType
+) => (?GraphQLObjectType | ?Promise<GraphQLObjectType>);
 
 export type GraphQLIsTypeOfFn = (
   source: mixed,
